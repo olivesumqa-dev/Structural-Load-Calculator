@@ -1,0 +1,247 @@
+{
+  "id": "sample-project-a",
+  "name": "Sample Project A - 3-Storey Frame",
+  "designer": "StrucForge Lead Engineer",
+  "date": "2026-06-20",
+  "codeStandard": "nscp",
+  "geometry": {
+    "numGrids": 3,
+    "gridLabels": [
+      "A",
+      "B",
+      "C"
+    ],
+    "spanLengths": [
+      5,
+      4
+    ],
+    "numLevels": 2,
+    "levelNames": [
+      "Foundation",
+      "Level-1",
+      "Roof"
+    ],
+    "storeyHeights": [
+      1.5,
+      3
+    ],
+    "includeRoof": true,
+    "includeParapet": true,
+    "parapetHeight": 1,
+    "buildingPlanWidth": 7.5,
+    "buildingPlanLength": 9.5,
+    "tribWidthAbove": 4,
+    "tribWidthBelow": 3.5,
+    "frameSharePercent": 100,
+    "buildingDirection": "X"
+  },
+  "memberSizes": {
+    "slabThickness": 125,
+    "beamWidth": 250,
+    "beamDepth": 400,
+    "girderWidth": 300,
+    "girderDepth": 600,
+    "columnWidth": 400,
+    "columnDepth": 400,
+    "wallThickness": 150,
+    "parapetThickness": 150
+  },
+  "memberOverrides": {
+    "beamWidths": {},
+    "beamDepths": {},
+    "columnWidths": {},
+    "columnDepths": {}
+  },
+  "materials": {
+    "concUnitWeight": 24,
+    "plainConcUnitWeight": 23.5,
+    "wallUnitWeight": 18,
+    "plasterUnitWeight": 0.24,
+    "floorFinish": 1.1,
+    "ceiling": 0.15,
+    "roofing": 0.2,
+    "roofTiles": 0.75,
+    "waterproofing": 0.25,
+    "partitionLoad": 1,
+    "mepAllowance": 0.25,
+    "liveLoadOccupancy": 2.4,
+    "roofLiveLoad": 1
+  },
+  "pointLoads": [
+    {
+      "id": "pl-a-1",
+      "case": "DL",
+      "levelIndex": 2,
+      "beamIndex": 1,
+      "magnitude": 35,
+      "distance": 2.25,
+      "direction": "downward",
+      "description": "Mech Equipment Point Load",
+      "active": true
+    },
+    {
+      "id": "pl-a-2",
+      "case": "LL",
+      "levelIndex": 1,
+      "beamIndex": 0,
+      "magnitude": 15,
+      "distance": 2,
+      "direction": "downward",
+      "description": "Concentrated Live Load",
+      "active": true
+    },
+    {
+      "id": "pl-1781942491730",
+      "case": "DL",
+      "levelIndex": 1,
+      "beamIndex": 0,
+      "magnitude": 20,
+      "distance": 2.5,
+      "direction": "downward",
+      "description": "Equipment point load",
+      "active": true
+    }
+  ],
+  "wind": {
+    "speed": 200,
+    "speedUnit": "kph",
+    "exposure": "C",
+    "importance": 1,
+    "directionality": 0.85,
+    "topographic": 1,
+    "gust": 0.85,
+    "internalPressure": 0.18,
+    "externalPressureWindward": 0.8,
+    "externalPressureLeeward": 0.5,
+    "enclosure": "enclosed",
+    "manualPressureOverride": false,
+    "customPressureKpa": 1.2
+  },
+  "seismic": {
+    "zoneFactor": 0.4,
+    "siteClass": "D",
+    "importance": 1,
+    "responseModification": 8.5,
+    "sysType": "Special RC Moment Frame",
+    "percentageLiveLoadInWeight": 25,
+    "includeRoof": false,
+    "includeWalls": true,
+    "includeParapet": true,
+    "manualLevelWeightOverrides": {}
+  },
+  "loadCombinations": [
+    {
+      "id": "nscp-1",
+      "name": "1.4 DL + 1.4 SDL",
+      "factors": {
+        "DL": 1.4,
+        "SDL": 1.4,
+        "PL": 1.4
+      },
+      "active": true
+    },
+    {
+      "id": "nscp-2",
+      "name": "1.4D + 1.7L",
+      "factors": {
+        "DL": 1.4,
+        "SDL": 1.4,
+        "LL": 1.7,
+        "PL": 1.4
+      },
+      "active": true
+    },
+    {
+      "id": "nscp-3",
+      "name": "1.05D + 1.275L + 1.275W",
+      "factors": {
+        "DL": 1.05,
+        "SDL": 1.05,
+        "LL": 1.275,
+        "WL": 1.275,
+        "PL": 1.05
+      },
+      "active": true
+    },
+    {
+      "id": "nscp-4",
+      "name": "1.05D + 1.275L - 1.275W",
+      "factors": {
+        "DL": 1.05,
+        "SDL": 1.05,
+        "LL": 1.275,
+        "WL": -1.275,
+        "PL": 1.05
+      },
+      "active": true
+    },
+    {
+      "id": "nscp-5",
+      "name": "0.9D + 1.3W",
+      "factors": {
+        "DL": 0.9,
+        "SDL": 0.9,
+        "WL": 1.3,
+        "PL": 0.9
+      },
+      "active": true
+    },
+    {
+      "id": "nscp-6",
+      "name": "0.9D - 1.3W",
+      "factors": {
+        "DL": 0.9,
+        "SDL": 0.9,
+        "WL": -1.3,
+        "PL": 0.9
+      },
+      "active": true
+    },
+    {
+      "id": "nscp-7",
+      "name": "1.1D + 1.3L + 1.1E",
+      "factors": {
+        "DL": 1.1,
+        "SDL": 1.1,
+        "LL": 1.3,
+        "EQL": 1.1,
+        "PL": 1.1
+      },
+      "active": true
+    },
+    {
+      "id": "nscp-8",
+      "name": "1.1D + 1.3L - 1.1E",
+      "factors": {
+        "DL": 1.1,
+        "SDL": 1.1,
+        "LL": 1.3,
+        "EQL": -1.1,
+        "PL": 1.1
+      },
+      "active": true
+    },
+    {
+      "id": "nscp-9",
+      "name": "0.9D + 1.1E",
+      "factors": {
+        "DL": 0.9,
+        "SDL": 0.9,
+        "EQL": 1.1,
+        "PL": 0.9
+      },
+      "active": true
+    },
+    {
+      "id": "nscp-10",
+      "name": "0.9D - 1.1E",
+      "factors": {
+        "DL": 0.9,
+        "SDL": 0.9,
+        "EQL": -1.1,
+        "PL": 0.9
+      },
+      "active": true
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;550;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+}
+
+/* Engineering print configurations override */
+@media print {
+  /* Hide non-printable elements completely from the layout flow */
+  .print-hidden, header, aside, .tabs-bar, button, select, input, .no-print {
+    display: none !important;
+  }
+  
+  /* Reset background and sizing for print */
+  body, html, #root, main, .main-container {
+    background: white !important;
+    color: black !important;
+    overflow: visible !important;
+    width: 100% !important;
+    height: auto !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    position: static !important;
+  }
+
+  /* Make the printable report card fit standard paper perfectly with no border/shadows */
+  .printable-report-card {
+    display: block !important;
+    box-shadow: none !important;
+    border: none !important;
+    background: white !important;
+    color: black !important;
+    overflow: visible !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    position: static !important;
+  }
+}
+
